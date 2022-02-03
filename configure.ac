@@ -135,6 +135,8 @@ if test "x$GCC" = xyes; then
 fi
 AC_ARG_ENABLE(syntax, [AC_HELP_STRING([--enable-unstrict-syntax], [be lazy on syntax checking for protocols (default=no)])], , [AC_DEFINE(UNSTRICT_SYNTAX, 1, [Define to be lazy on protocol syntax])])
 
+AC_ARG_ENABLE(mailstream-debug, [AC_HELP_STRING([--enable-mailstream-debug], [allow programs to set a flag to debug all mail stream traffic (default=yes)])], [AC_DEFINE(LIBETPAN_MAILSTREAM_DEBUG, 1, [Define to allow tutrning on mailstream_debug])])
+
 AH_VERBATIM([CONFIG_H_FIRST], [/* Check for Linux's /usr/include/features.h
  */
 #ifdef _FEATURES_H
