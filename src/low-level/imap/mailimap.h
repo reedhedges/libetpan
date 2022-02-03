@@ -928,6 +928,8 @@ int mailimap_is_qip_workaround_enabled(mailimap * session);
 LIBETPAN_EXPORT
 void mailimap_set_qip_workaround_enabled(mailimap * session, int enabled);
 
+LIBETPAN_EXPORT const char *mailimap_strerror(int errnum);
+
 #ifdef __cplusplus
 }
 #endif

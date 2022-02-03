@@ -2804,3 +2804,60 @@ LIBETPAN_EXPORT
 int mailimap_is_qip_workaround_enabled(mailimap * session) {
   return session->is_qip_workaround_enabled;
 }
+
+LIBETPAN_EXPORT const char *mailimap_strerror(int errnum) {
+  switch (errnum) {
+    case MAILIMAP_NO_ERROR: return "No error";
+    case MAILIMAP_NO_ERROR_AUTHENTICATED: return "No error, successfully authenticated";
+    case MAILIMAP_NO_ERROR_NON_AUTHENTICATED: return "No error, but not yet authenticated";
+    case MAILIMAP_ERROR_BAD_STATE: return "Bad state";
+    case MAILIMAP_ERROR_STREAM: return "Stream error";
+    case MAILIMAP_ERROR_PARSE: return "Parse error";
+    case MAILIMAP_ERROR_CONNECTION_REFUSED: return "Connection refused";
+    case MAILIMAP_ERROR_MEMORY: return "Memory allocation error";
+    case MAILIMAP_ERROR_FATAL: return "Unknown fatal error";
+    case MAILIMAP_ERROR_PROTOCOL: return "IMAP protocol error";
+    case MAILIMAP_ERROR_DONT_ACCEPT_CONNECTION: return "Don't accept connection?";
+
+    case MAILIMAP_ERROR_APPEND:
+    case MAILIMAP_ERROR_NOOP:
+    case MAILIMAP_ERROR_LOGOUT:
+    case MAILIMAP_ERROR_CAPABILITY:
+    case MAILIMAP_ERROR_CHECK:
+    case MAILIMAP_ERROR_CLOSE:
+    case MAILIMAP_ERROR_EXPUNGE:
+    case MAILIMAP_ERROR_COPY:
+    case MAILIMAP_ERROR_UID_COPY:
+    case MAILIMAP_ERROR_MOVE:
+    case MAILIMAP_ERROR_UID_MOVE:
+    case MAILIMAP_ERROR_CREATE:
+    case MAILIMAP_ERROR_DELETE:
+    case MAILIMAP_ERROR_EXAMINE:
+    case MAILIMAP_ERROR_FETCH:
+    case MAILIMAP_ERROR_UID_FETCH:
+    case MAILIMAP_ERROR_LIST:
+    case MAILIMAP_ERROR_LOGIN:
+    case MAILIMAP_ERROR_LSUB:
+    case MAILIMAP_ERROR_RENAME:
+    case MAILIMAP_ERROR_SEARCH:
+    case MAILIMAP_ERROR_UID_SEARCH:
+    case MAILIMAP_ERROR_SELECT:
+    case MAILIMAP_ERROR_STATUS:
+    case MAILIMAP_ERROR_STORE:
+    case MAILIMAP_ERROR_UID_STORE:
+    case MAILIMAP_ERROR_SUBSCRIBE:
+    case MAILIMAP_ERROR_UNSUBSCRIBE:
+      return "Server error executing IMAP command";
+
+    case MAILIMAP_ERROR_STARTTLS: return "Server error STARTTLS";
+    case MAILIMAP_ERROR_INVAL: return "Server error invalid";
+    case MAILIMAP_ERROR_EXTENSION: return "Extension error";
+    case MAILIMAP_ERROR_SASL: return "SASL error";
+    case MAILIMAP_ERROR_SSL: return "SSL error";
+    case MAILIMAP_ERROR_NEEDS_MORE_DATA : return "Need more data";
+    case MAILIMAP_ERROR_CUSTOM_COMMAND: return "Custom command error";
+    case MAILIMAP_ERROR_CLIENTID: return "ClientID error";
+  }
+  return "Unknown error code";
+}
+
