@@ -116,14 +116,16 @@ AC_PROG_CXX
 # Compiler flags.
 AC_ARG_ENABLE(debug, [AC_HELP_STRING([--enable-debug], [setup flags (gcc) for debugging (default=no)])],
 if test "x$enable_debug" = xyes; then
-  CFLAGS="$CFLAGS -O2 -g"
+  AC_MSG_WARN(Building with debugging enabled and optimizations disabled)
+  CFLAGS="$CFLAGS -Og -g"
 fi
 CPPFLAGS="$CPPFLAGS -DDEBUG"
 LDFLAGS="$LDFLAGS",)
 AC_ARG_ENABLE(optim, [AC_HELP_STRING([--enable-optim], [setup flags (gcc) for optimizations (default=no)])],
 if test "x$enable_debug" != "xyes" ; then
+  AC_MSG_WARN(Building with optimizations enabled)
   if test "x$GCC" = xyes; then
-    CFLAGS="$CFLAGS -O2 -ffast-math -funroll-loops -g0"
+    CFLAGS="$CFLAGS -O2 -ffast-math -funroll-loops"
   fi
   CPPFLAGS="$CPPFLAGS"
   LDFLAGS="$LDFLAGS -s"
