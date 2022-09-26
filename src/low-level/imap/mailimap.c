@@ -2804,3 +2804,108 @@ LIBETPAN_EXPORT
 int mailimap_is_qip_workaround_enabled(mailimap * session) {
   return session->is_qip_workaround_enabled;
 }
+
+LIBETPAN_EXPORT
+const char *mailimap_strerror(int errnum)
+{
+  switch(errnum)
+  {
+    case MAILIMAP_NO_ERROR: 
+      return "No error";
+    case MAILIMAP_NO_ERROR_AUTHENTICATED: 
+      return "Authenticated";
+    case MAILIMAP_NO_ERROR_NON_AUTHENTICATED: 
+      return "Not yet authenticated";
+    case MAILIMAP_ERROR_BAD_STATE: 
+      return "Bad state";
+    case MAILIMAP_ERROR_STREAM: 
+      return "Stream error";
+    case MAILIMAP_ERROR_PARSE: 
+      return "Parse error";
+    case MAILIMAP_ERROR_CONNECTION_REFUSED: 
+      return "Connection refused";
+    case MAILIMAP_ERROR_MEMORY: 
+      return "Memory error";
+    case MAILIMAP_ERROR_FATAL: 
+      return "Unknown fatal error";
+    case MAILIMAP_ERROR_PROTOCOL: 
+      return "Protocol error";
+    case MAILIMAP_ERROR_DONT_ACCEPT_CONNECTION: 
+      return "Didn't accept connection";
+    case MAILIMAP_ERROR_APPEND: 
+      return "Append error";
+    case MAILIMAP_ERROR_NOOP: 
+      return "Noop";
+    case MAILIMAP_ERROR_LOGOUT: 
+      return "Logout";
+    case MAILIMAP_ERROR_CAPABILITY: 
+      return "Capability error";
+    case MAILIMAP_ERROR_CHECK: 
+      return "Check error";
+    case MAILIMAP_ERROR_CLOSE: 
+      return "Close error";
+    case MAILIMAP_ERROR_EXPUNGE: 
+      return "Expunge error";
+    case MAILIMAP_ERROR_COPY: 
+      return "Copy error";
+    case MAILIMAP_ERROR_UID_COPY: 
+      return "Copy UID error";
+    case MAILIMAP_ERROR_MOVE: 
+      return "Move error";
+    case MAILIMAP_ERROR_UID_MOVE: 
+      return "Move UID error";
+    case MAILIMAP_ERROR_CREATE: 
+      return "Create error";
+    case MAILIMAP_ERROR_DELETE: 
+      return "Delete error";
+    case MAILIMAP_ERROR_EXAMINE: 
+      return "Examine error";
+    case MAILIMAP_ERROR_FETCH: 
+      return "Fetch error";
+    case MAILIMAP_ERROR_UID_FETCH: 
+      return "Fetch UID error";
+    case MAILIMAP_ERROR_LIST: 
+      return "List error";
+    case MAILIMAP_ERROR_LOGIN: 
+      return "Login error";
+    case MAILIMAP_ERROR_LSUB: 
+      return "LSUB error";
+    case MAILIMAP_ERROR_RENAME: 
+      return "Rename error";
+    case MAILIMAP_ERROR_SEARCH: 
+      return "Search error";
+    case MAILIMAP_ERROR_UID_SEARCH: 
+      return "Search UID error";
+    case MAILIMAP_ERROR_SELECT: 
+      return "Select error";
+    case MAILIMAP_ERROR_STATUS: 
+      return "Status error";
+    case MAILIMAP_ERROR_STORE: 
+      return "Store error";
+    case MAILIMAP_ERROR_UID_STORE: 
+      return "Store UID error";
+    case MAILIMAP_ERROR_SUBSCRIBE: 
+      return "Subscribe error";
+    case MAILIMAP_ERROR_UNSUBSCRIBE: 
+      return "Unsubscribe error";
+    case MAILIMAP_ERROR_STARTTLS: 
+      return "StartTLS error";
+    case MAILIMAP_ERROR_INVAL: 
+      return "Invalid";
+    case MAILIMAP_ERROR_EXTENSION: 
+      return "Extension error";
+    case MAILIMAP_ERROR_SASL: 
+      return "SASL error";
+    case MAILIMAP_ERROR_SSL: 
+      return "SSL error";
+    case MAILIMAP_ERROR_NEEDS_MORE_DATA: 
+      return "Need more data";
+    case MAILIMAP_ERROR_CUSTOM_COMMAND: 
+      return "Custom command error";
+    case MAILIMAP_ERROR_CLIENTID: 
+      return "ClientID error";
+    default:
+      return "Unknown error code";
+  }
+}
+
